@@ -1,4 +1,4 @@
-package java.fundamentals;
+package fundamentals.coderecap;
 
 public class MultipleClassesInSameFile {
 
