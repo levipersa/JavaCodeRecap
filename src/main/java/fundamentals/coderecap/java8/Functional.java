@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.function.*;
 
 public class Functional {
+
     public static void main(String[] args) {
         Function<String, Integer> functionLambda = s -> s.length();
 //        Function<String,Integer> function=new Function<String, Integer>() {
@@ -33,5 +34,24 @@ public class Functional {
         BiFunction<Integer, Integer, String> biFunction = (t, s) -> t.toString() + s.toString();
         System.out.println(biFunction.apply(12, 34));
 
+        BiFunction<Integer, Integer, String> anotherBiFunction = Functional::concatenateIntegers;
+        System.out.println(anotherBiFunction.apply(35, 53));
+
     }
+
+    public static String concatenateIntegers(Integer firstInt, Integer secondInt) {
+        return firstInt.toString() + secondInt.toString();
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
