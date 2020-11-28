@@ -1,8 +1,9 @@
 package fundamentals.coderecap.designPatterns;
 
-public class CompanyOneMotionSensor extends MotionSensor {
+public class CompanyOneMotionSensor extends MotionSensor implements Observer {
 
-    Integer newDistance;
+    private Integer newDistance;
+    private Subject subject;
 
     public CompanyOneMotionSensor(Integer distance, String description) {
         super(distance, description);
@@ -18,5 +19,17 @@ public class CompanyOneMotionSensor extends MotionSensor {
 
     public void setNewDistance(Integer newDistance) {
         this.newDistance = newDistance;
+    }
+
+    @Override
+    public void detect() {
+        if (this.newDistance < super.getDistance()) {
+            System.out.println("Motion detected!");
+        }
+    }
+
+    @Override
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 }
