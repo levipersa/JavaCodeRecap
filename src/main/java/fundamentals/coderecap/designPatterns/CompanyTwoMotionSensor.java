@@ -26,6 +26,9 @@ public class CompanyTwoMotionSensor extends MotionSensor implements Observer {
     public void detect() {
         if (this.newDistance < super.getDistance()){
             System.out.println("Motion detected! CompanyTwo Sensor...");
+            MotionNotification notification =
+                    new MotionNotification(super.getDistance()-newDistance);
+            notification.sendNotification(new SMSNotificationStrategy());
         }
     }
 

@@ -25,6 +25,9 @@ public class CompanyOneMotionSensor extends MotionSensor implements Observer {
     public void detect() {
         if (this.newDistance < super.getDistance()) {
             System.out.println("Motion detected!");
+            MotionNotification notification =
+                    new MotionNotification(super.getDistance()-newDistance);
+            notification.sendNotification(new FacebookNotificationStrategy());
         }
     }
 

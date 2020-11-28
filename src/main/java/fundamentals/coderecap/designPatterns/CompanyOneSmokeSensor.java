@@ -22,6 +22,9 @@ public class CompanyOneSmokeSensor extends SmokeSensor implements Observer {
     public void detect() {
         if (this.newVolume < super.getVolume()) {
             System.out.println("Smoke detected!");
+            SmokeNotification notification =
+                    new SmokeNotification(super.getVolume()-newVolume);
+            notification.sendNotification(new SMSNotificationStrategy());
         }
     }
 

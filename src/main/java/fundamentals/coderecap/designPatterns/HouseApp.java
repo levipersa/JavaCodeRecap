@@ -19,5 +19,8 @@ public class HouseApp {
 //        smokeSensor.detect();
         sensorSystem.unRegister(smokeSensor);
         sensorSystem.notifyObservers();
+
+
+
     }
 }
