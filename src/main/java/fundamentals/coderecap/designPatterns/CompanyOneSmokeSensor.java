@@ -25,6 +25,10 @@ public class CompanyOneSmokeSensor extends SmokeSensor implements Observer {
             SmokeNotification notification =
                     new SmokeNotification(super.getVolume()-newVolume);
             notification.sendNotification(new SMSNotificationStrategy());
+            HomeController homeController=new HomeController();
+
+            homeController.setCommand(new TurnOnSprinklerCommand(new WaterSprinkler()));
+            homeController.buttonPressed();
         }
     }
 

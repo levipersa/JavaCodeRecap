@@ -19,7 +19,11 @@ public class HouseApp {
 //        smokeSensor.detect();
         sensorSystem.unRegister(smokeSensor);
         sensorSystem.notifyObservers();
-
+        HomeController homeController = new HomeController();
+        homeController.setCommand(new TurnOffSprinklerCommand(new WaterSprinkler()));
+        homeController.buttonPressed();
+        homeController.setCommand(new StopAlarmCommand(new AlarmForMotion()));
+        homeController.buttonPressed();
 
 
     }

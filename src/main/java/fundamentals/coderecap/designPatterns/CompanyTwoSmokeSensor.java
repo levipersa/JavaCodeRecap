@@ -24,6 +24,9 @@ public class CompanyTwoSmokeSensor extends SmokeSensor implements Observer {
             SmokeNotification notification =
                     new SmokeNotification(super.getVolume()-newVolume);
             notification.sendNotification(new FacebookNotificationStrategy());
+            HomeController homeController=new HomeController();
+            homeController.setCommand(new TurnOnSprinklerCommand(new WaterSprinkler()));
+            homeController.buttonPressed();
         }
     }
 

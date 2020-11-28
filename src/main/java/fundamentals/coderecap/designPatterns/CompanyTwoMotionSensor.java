@@ -29,6 +29,9 @@ public class CompanyTwoMotionSensor extends MotionSensor implements Observer {
             MotionNotification notification =
                     new MotionNotification(super.getDistance()-newDistance);
             notification.sendNotification(new SMSNotificationStrategy());
+            HomeController homeController=new HomeController();
+            homeController.setCommand(new StartAlarmCommand(new AlarmForMotion()));
+            homeController.buttonPressed();
         }
     }
 

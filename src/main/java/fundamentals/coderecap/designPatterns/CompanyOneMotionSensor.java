@@ -28,6 +28,9 @@ public class CompanyOneMotionSensor extends MotionSensor implements Observer {
             MotionNotification notification =
                     new MotionNotification(super.getDistance()-newDistance);
             notification.sendNotification(new FacebookNotificationStrategy());
+            HomeController homeController=new HomeController();
+            homeController.setCommand(new StartAlarmCommand(new AlarmForMotion()));
+            homeController.buttonPressed();
         }
     }
 
